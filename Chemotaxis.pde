@@ -4,7 +4,7 @@ Bacteria [] colony;
    size(800, 800);
    background(0);
    colorMode(HSB, 100);
-   colony = new Bacteria[100];
+   colony = new Bacteria[150];
    for (int i = 0; i < colony.length; i++)
    {
      colony[i] = new Bacteria();
@@ -28,7 +28,7 @@ Bacteria [] colony;
      x = (int)(Math.random() * 801);
      y = (int)(Math.random() * 801);
      h = (int)(Math.random()*100) + 1;
-     d = (int)(Math.random()*31) + 10;
+     d = (int)(Math.random()*31) + 5;
    }
    void move()
    {
