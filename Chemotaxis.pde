@@ -38,3 +38,4 @@ Bacteria [] colony;
      stroke(h, 70, 90);
      ellipse(myX, myY, 25, 25);
    }
+ }
