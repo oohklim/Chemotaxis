@@ -2,6 +2,7 @@ Bacteria [] colony;
  void setup()   
  {     
    size(800, 800);
+   background(0);
    colorMode(HSB, 100);
    colony = new Bacteria[100];
    for (int i = 0; i < colony.length; i++)
@@ -11,7 +12,8 @@ Bacteria [] colony;
  }   
  void draw()   
  {
-   background(0, 0, 100);
+   fill(0, 15);
+   rect(-1, -1, 801, 801);
    for (int i = 0; i < colony.length; i++)
    {
      colony[i].move();
@@ -26,7 +28,7 @@ Bacteria [] colony;
      x = (int)(Math.random() * 801);
      y = (int)(Math.random() * 801);
      h = (int)(Math.random()*100) + 1;
-     d = (int)(Math.random()*16) + 10;
+     d = (int)(Math.random()*31) + 10;
    }
    void move()
    {
@@ -38,6 +40,10 @@ Bacteria [] colony;
      {
        x = x + (int)(Math.random()*5) - 3;
      }
+     else
+     {
+       x = x + (int)(Math.random()*5) - 2;
+     }
      if(y < mouseY)//[-1, 3]
      {
        y = y + (int)(Math.random()*5) - 1;
@@ -45,6 +51,10 @@ Bacteria [] colony;
      else if(y > mouseY)//[-3, 1]
      {
        y = y + (int)(Math.random()*5) - 3;
+     }
+     else
+     {
+       y = y + (int)(Math.random()*5) - 2;
      }
    }
    void show()
