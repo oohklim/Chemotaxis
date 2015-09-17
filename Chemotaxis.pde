@@ -4,13 +4,13 @@ void setup()
   size(600, 600);
   background(0);
   colorMode(HSB, 100);
-  colony = new Bacteria[250];
+  colony = new Bacteria[1000];
   for (int i = 0; i < colony.length; i++)
   {
     colony[i] = new Bacteria();
   }
 }   
-void draw()   
+void draw()
 {
   fill(0, 15);
   rect(-1, -1, 601, 601);
@@ -25,10 +25,10 @@ class Bacteria
   int x, y, h, d;
   Bacteria()
   {
-    x = (int)(Math.random() * 1201) - 300;
-    y = (int)(Math.random() * 1201) - 300;
+    x = (int)(Math.random() * 4001) - 1700;
+    y = (int)(Math.random() * 4001) - 1700;
     h = (int)(Math.random()*100) + 1;
-    d = (int)(Math.random()*26) + 5;
+    d = (int)(Math.random()*15) + 1;
   }
   void move()
   {
