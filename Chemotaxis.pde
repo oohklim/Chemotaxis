@@ -4,7 +4,7 @@ void setup()
   size(600, 600);
   background(0);
   colorMode(HSB, 100);
-  colony = new Bacteria[200];
+  colony = new Bacteria[250];
   for (int i = 0; i < colony.length; i++)
   {
     colony[i] = new Bacteria();
@@ -18,71 +18,33 @@ void draw()
   {
     colony[i].move();
     colony[i].show();
-    colony[i].bounce();
   }
 }  
 class Bacteria    
 {
-  int x, y, h, d, r;
-  boolean up, right;
+  int x, y, h, d;
   Bacteria()
   {
-    x = (int)(Math.random() * 1001) - 200;
-    y = (int)(Math.random() * 1001) - 200;
+    x = (int)(Math.random() * 1201) - 300;
+    y = (int)(Math.random() * 1201) - 300;
     h = (int)(Math.random()*100) + 1;
     d = (int)(Math.random()*26) + 5;
-    r = (int)(Math.random()*4);
-    if(r == 0)
-    {
-      up = true;
-    }
-    else if(r == 1)
-    {
-      up = false;
-    }
-    else if(r == 2)
-    {
-      right = true;
-    }
-    else
-    {
-      right = false;
-    }
-  }
-  void bounce()
-  {
-    if (x <= 0)
-    { 
-      right = true;
-    }
-    if (x >= 600)
-    {
-      right = false;
-    }
-    if (y <= 0)
-    {
-      up = false;
-    }
-    if (y >= 600)
-    {
-      up = true;
-    }
   }
   void move()
   {
-    if (right == true)//[-1, 3]
+    if (x < mouseX)//[-1, 2]
     {
       x = x + (int)(Math.random()*4) - 1;
     }
-    else//[-3, 1]
+    else//[-2, 1]
     {
       x = x + (int)(Math.random()*4) - 2;
     }
-    if (up == false)//[-1, 3]
+    if (y < mouseY)//[-1, 2]
     {
       y = y + (int)(Math.random()*4) - 1;
     }
-    else//[-3, 1]
+    else//[-2, 1]
     {
       y = y + (int)(Math.random()*4) - 2;
     }
