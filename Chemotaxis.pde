@@ -36,17 +36,25 @@ class Bacteria
     {
       x = x + (int)(Math.random()*4) - 1;
     }
-    else//[-2, 1]
+    else if (x > mouseX)//[-2, 1]
     {
       x = x + (int)(Math.random()*4) - 2;
+    }
+    else
+    {
+      x = x + (int)(Math.random()*5) - 2;
     }
     if (y < mouseY)//[-1, 2]
     {
       y = y + (int)(Math.random()*4) - 1;
     }
-    else//[-2, 1]
+    else if (y > mouseY)//[-2, 1]
     {
       y = y + (int)(Math.random()*4) - 2;
+    }
+    else
+    {
+      y = y + (int)(Math.random()*5) - 2;
     }
   }
   void show()
