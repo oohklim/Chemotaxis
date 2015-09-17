@@ -4,7 +4,7 @@ void setup()
   size(600, 600);
   background(0);
   colorMode(HSB, 100);
-  colony = new Bacteria[250];
+  colony = new Bacteria[200];
   for (int i = 0; i < colony.length; i++)
   {
     colony[i] = new Bacteria();
@@ -23,7 +23,7 @@ void draw()
 }  
 class Bacteria    
 {
-  int x, y, h, d;
+  int x, y, h, d, r;
   boolean up, right;
   Bacteria()
   {
@@ -31,8 +31,23 @@ class Bacteria
     y = (int)(Math.random() * 1001) - 200;
     h = (int)(Math.random()*100) + 1;
     d = (int)(Math.random()*26) + 5;
-    boolean up = true;
-    boolean right = false;
+    r = (int)(Math.random()*4);
+    if(r == 0)
+    {
+      up = true;
+    }
+    else if(r == 1)
+    {
+      up = false;
+    }
+    else if(r == 2)
+    {
+      right = true;
+    }
+    else
+    {
+      right = false;
+    }
   }
   void bounce()
   {
