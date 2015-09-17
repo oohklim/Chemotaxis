@@ -4,7 +4,7 @@ void setup()
   size(600, 600);
   background(0);
   colorMode(HSB, 100);
-  colony = new Bacteria[1000];
+  colony = new Bacteria[200];
   for (int i = 0; i < colony.length; i++)
   {
     colony[i] = new Bacteria();
@@ -25,10 +25,10 @@ class Bacteria
   int x, y, h, d;
   Bacteria()
   {
-    x = (int)(Math.random() * 4001) - 1700;
-    y = (int)(Math.random() * 4001) - 1700;
+    x = (int)(Math.random() * 1201) - 300;
+    y = (int)(Math.random() * 1201) - 300;
     h = (int)(Math.random()*100) + 1;
-    d = (int)(Math.random()*15) + 1;
+    d = (int)(Math.random()*10) + 1;
   }
   void move()
   {
@@ -55,6 +55,35 @@ class Bacteria
     else
     {
       y = y + (int)(Math.random()*5) - 2;
+    }
+    if (x == mouseX && y == mouseY)
+    {
+      if((int)(Math.random() * 2) == 1)
+      {
+        if((int)(Math.random() * 2) == 1)
+        {
+          x = -100;
+          y = (int)(Math.random() * 1201) - 300;
+        }
+        else
+        {
+          x = 700;
+          y = (int)(Math.random() * 1201) - 300;
+        }
+      }
+      else
+      {
+        if((int)(Math.random() * 2) == 1)
+        {
+          x = (int)(Math.random() * 1201) - 300;
+          y = -100;
+        }
+        else
+        {
+          x = (int)(Math.random() * 1201) - 300;
+          y = 700;
+        } 
+      }
     }
   }
   void show()
