@@ -1,7 +1,7 @@
 Bacteria [] colony;
 void setup()   
 {     
-  size(600, 600);
+  size(1000, 700);
   background(0);
   colorMode(HSB, 100);
   colony = new Bacteria[200];
@@ -13,7 +13,7 @@ void setup()
 void draw()
 {
   fill(0, 15);
-  rect(-1, -1, 601, 601);
+  rect(-1, -1, 1001, 701);
   for (int i = 0; i < colony.length; i++)
   {
     colony[i].move();
@@ -25,8 +25,8 @@ class Bacteria
   int x, y, h, d;
   Bacteria()
   {
-    x = (int)(Math.random() * 1201) - 300;
-    y = (int)(Math.random() * 1201) - 300;
+    x = (int)(Math.random() * 1601) - 300;
+    y = (int)(Math.random() * 1301) - 300;
     h = (int)(Math.random()*100) + 1;
     d = (int)(Math.random()*10) + 1;
   }
@@ -63,25 +63,25 @@ class Bacteria
         if((int)(Math.random() * 2) == 1)
         {
           x = -100;
-          y = (int)(Math.random() * 1201) - 300;
+          y = (int)(Math.random() * 1301) - 300;
         }
         else
         {
-          x = 700;
-          y = (int)(Math.random() * 1201) - 300;
+          x = 1100;
+          y = (int)(Math.random() * 1301) - 300;
         }
       }
       else
       {
         if((int)(Math.random() * 2) == 1)
         {
-          x = (int)(Math.random() * 1201) - 300;
+          x = (int)(Math.random() * 1601) - 300;
           y = -100;
         }
         else
         {
-          x = (int)(Math.random() * 1201) - 300;
-          y = 700;
+          x = (int)(Math.random() * 1601) - 300;
+          y = 800;
         } 
       }
     }
