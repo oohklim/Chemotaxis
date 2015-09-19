@@ -1,7 +1,7 @@
 Bacteria [] colony;
 void setup()   
 {     
-  size(1500, 1000);
+  size(1200, 1000);
   background(0);
   colorMode(HSB, 100);
   colony = new Bacteria[300];
@@ -25,34 +25,34 @@ class Bacteria
   int x, y, h, d;
   Bacteria()
   {
-    x = (int)(Math.random() * 2101) - 300;
+    x = (int)(Math.random() * 1801) - 300;
     y = (int)(Math.random() * 1601) - 300;
     h = (int)(Math.random()*100) + 1;
     d = (int)(Math.random()*10) + 1;
   }
   void move()
   {
-    if (x < mouseX)//[-1, 3]
+    if (x < mouseX)//[-1, 2]
     {
-      x = x + (int)(Math.random()*5) - 1;
+      x = x + (int)(Math.random()*4) - 1;
     }
-    else if (x > mouseX)//[-3, 1]
+    else if (x > mouseX)//[-2, 1]
     {
-      x = x + (int)(Math.random()*5) - 3;
+      x = x + (int)(Math.random()*4) - 2;
     }
-    else//[-2, 2]
+    else
     {
       x = x + (int)(Math.random()*5) - 2;
     }
-    if (y < mouseY)//[-1, 3]
+    if (y < mouseY)//[-1, 2]
     {
-      y = y + (int)(Math.random()*5) - 1;
+      y = y + (int)(Math.random()*4) - 1;
     }
-    else if (y > mouseY)//[-3, 1]
+    else if (y > mouseY)//[-2, 1]
     {
-      y = y + (int)(Math.random()*5) - 3;
+      y = y + (int)(Math.random()*4) - 2;
     }
-    else//[-2, 2]
+    else
     {
       y = y + (int)(Math.random()*5) - 2;
     }
@@ -67,7 +67,7 @@ class Bacteria
         }
         else
         {
-          x = 1600;
+          x = 1300;
           y = (int)(Math.random() * 1601) - 300;
         }
       }
@@ -75,12 +75,12 @@ class Bacteria
       {
         if((int)(Math.random() * 2) == 1)
         {
-          x = (int)(Math.random() * 2101) - 300;
+          x = (int)(Math.random() * 1801) - 300;
           y = -100;
         }
         else
         {
-          x = (int)(Math.random() * 2101) - 300;
+          x = (int)(Math.random() * 1801) - 300;
           y = 1100;
         } 
       }
