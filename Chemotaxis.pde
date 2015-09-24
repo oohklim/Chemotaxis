@@ -97,3 +97,35 @@ class Bacteria
     ellipse(x, y, d, d);
   }
 }
+
+//int i;
+//int mX;
+//int mY;
+//void setup()
+//{
+//  background(0);
+//  size(500, 500);
+//}
+//
+//void draw()
+//{
+//  fill(0,15);
+//  rect(-1, -1, 501, 501);
+//  if(i < 150)
+//  {
+//    noFill();
+//    stroke(255);
+//    ellipse(mX, mY, i, i);
+//    i = i + 2;
+//  }
+//}
+//
+//void mouseClicked()
+//{
+//  if(i == 150)
+//  {
+//    mX = mouseX;
+//    mY = mouseY;
+//    i = 0;
+//  }
+//}
