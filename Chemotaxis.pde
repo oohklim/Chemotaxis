@@ -1,3 +1,5 @@
+int a = 150; //wave diamter
+int waveX, waveY, t; //wave transparency;
 Bacteria [] colony;
 void setup()   
 {     
@@ -12,8 +14,15 @@ void setup()
 }   
 void draw()
 {
-  fill(0, 15);
+  fill(0, 25);
   rect(-1, -1, 1001, 701);
+  if(a < 150)
+  {
+    stroke(0, 0, 100, t);
+    ellipse(waveX, waveY, a, a);
+    a = a + 2;
+    t = t - 4;
+  }
   for (int i = 0; i < colony.length; i++)
   {
     colony[i].move();
@@ -33,11 +42,29 @@ class Bacteria
   }
   void move()
   {
-    if (x < mouseX)//[-1, 2]
+    //if there is a wave bacteria moves away from it
+    if(a != 150 && x > waveX)
     {
       x = x + (int)(Math.random()*4) - 1;
     }
-    else if (x > mouseX)//[-2, 1]
+    else if(a != 150 && x < waveX)
+    {
+      x = x + (int)(Math.random()*4) - 2;
+    }
+    if(a != 150 && y > waveY)
+    {
+      y = y + (int)(Math.random()*4) - 1;
+    }
+    else if(a != 150 && y < waveY)
+    {
+      y = y + (int)(Math.random()*4) - 2;
+    }
+    //if there is no wave bacteria chases cursor
+    if (a == 150 && x < mouseX)//[-1, 2]
+    {
+      x = x + (int)(Math.random()*4) - 1;
+    }
+    else if (a == 150 && x > mouseX)//[-2, 1]
     {
       x = x + (int)(Math.random()*4) - 2;
     }
@@ -45,11 +72,11 @@ class Bacteria
     {
       x = x + (int)(Math.random()*5) - 2;
     }
-    if (y < mouseY)//[-1, 2]
+    if (a == 150 && y < mouseY)//[-1, 2]
     {
       y = y + (int)(Math.random()*4) - 1;
     }
-    else if (y > mouseY)//[-2, 1]
+    else if (a == 150 && y > mouseY)//[-2, 1]
     {
       y = y + (int)(Math.random()*4) - 2;
     }
@@ -58,9 +85,9 @@ class Bacteria
       y = y + (int)(Math.random()*5) - 2;
     }
   }
-  void reset()
+  void reset() //if bacteria touches cursor or wave, reset off the screen
   {
-    if (x == mouseX && y == mouseY)
+    if ((x == mouseX && y == mouseY) || (a != 150 && pow(x - waveX, 2) + pow(y - waveY, 2) <= pow(a, 2))) //using equation of a circle
     {
       if ((int)(Math.random()*2) == 1)
       {
@@ -98,34 +125,13 @@ class Bacteria
   }
 }
 
-//int i;
-//int mX;
-//int mY;
-//void setup()
-//{
-//  background(0);
-//  size(500, 500);
-//}
-//
-//void draw()
-//{
-//  fill(0,15);
-//  rect(-1, -1, 501, 501);
-//  if(i < 150)
-//  {
-//    noFill();
-//    stroke(255);
-//    ellipse(mX, mY, i, i);
-//    i = i + 2;
-//  }
-//}
-//
-//void mouseClicked()
-//{
-//  if(i == 150)
-//  {
-//    mX = mouseX;
-//    mY = mouseY;
-//    i = 0;
-//  }
-//}
+void mouseClicked()
+{
+  if(a == 150)
+  {
+    waveX = mouseX;
+    waveY = mouseY;
+    a = 0;
+    t = 300;
+  }
+}
