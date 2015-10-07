@@ -14,8 +14,7 @@ void setup()
 }   
 void draw()
 {
-  fill(0, 15);
-  rect(-1, -1, 1001, 701);
+  background(0);
   if(a < 150)
   {
     stroke(0, 0, 100, t);
