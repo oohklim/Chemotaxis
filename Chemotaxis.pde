@@ -14,7 +14,7 @@ void setup()
 }   
 void draw()
 {
-  fill(0, 25);
+  fill(0, 15);
   rect(-1, -1, 1001, 701);
   if(a < 150)
   {
