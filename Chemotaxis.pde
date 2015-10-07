@@ -4,7 +4,7 @@ Bacteria [] colony;
 void setup()   
 {     
   size(1000, 700);
-  background(0, 0, 100);
+  background(0);
   colorMode(HSB, 100);
   colony = new Bacteria[200];
   for (int i = 0; i < colony.length; i++)
@@ -14,11 +14,11 @@ void setup()
 }   
 void draw()
 {
-  fill(0, 0, 100, 20);
+  fill(0, 20);
   rect(-1, -1, 1001, 701);
   if(a < 150)
   {
-    stroke(0, t);
+    stroke(0, 0, 100, t);
     ellipse(waveX, waveY, a, a);
     a = a + 2;
     t = t - 4;
