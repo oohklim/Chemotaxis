@@ -42,47 +42,53 @@ class Bacteria
   }
   void move()
   {
-    //if there is a wave bacteria moves away from it
-    if(a != 150 && x > waveX)
+    //if there is a wave near by bacteria moves away from it
+    if(dist(x, y, waveX, waveY) < 150 && a != 150)
     {
-      x = x + (int)(Math.random()*4) - 1;
-    }
-    else if(a != 150 && x < waveX)
-    {
-      x = x + (int)(Math.random()*4) - 2;
-    }
-    if(a != 150 && y > waveY)
-    {
-      y = y + (int)(Math.random()*4) - 1;
-    }
-    else if(a != 150 && y < waveY)
-    {
-      y = y + (int)(Math.random()*4) - 2;
+      if(x > waveX)
+      {
+        x = x + (int)(Math.random()*4) - 1;
+      }
+      else if(x < waveX)
+      {
+        x = x + (int)(Math.random()*4) - 2;
+      }
+      if(y > waveY)
+      {
+        y = y + (int)(Math.random()*4) - 1;
+      }
+      else if(y < waveY)
+      {
+        y = y + (int)(Math.random()*4) - 2;
+      }
     }
     //if there is no wave bacteria chases cursor
-    if (a == 150 && x < mouseX)//[-1, 2]
-    {
-      x = x + (int)(Math.random()*4) - 1;
-    }
-    else if (a == 150 && x > mouseX)//[-2, 1]
-    {
-      x = x + (int)(Math.random()*4) - 2;
-    }
     else
     {
-      x = x + (int)(Math.random()*5) - 2;
-    }
-    if (a == 150 && y < mouseY)//[-1, 2]
-    {
-      y = y + (int)(Math.random()*4) - 1;
-    }
-    else if (a == 150 && y > mouseY)//[-2, 1]
-    {
-      y = y + (int)(Math.random()*4) - 2;
-    }
-    else
-    {
-      y = y + (int)(Math.random()*5) - 2;
+      if (x < mouseX)//[-1, 2]
+      {
+        x = x + (int)(Math.random()*4) - 1;
+      }
+      else if (x > mouseX)//[-2, 1]
+      {
+        x = x + (int)(Math.random()*4) - 2;
+      }
+      else
+      {
+        x = x + (int)(Math.random()*5) - 2;
+      }
+      if (y < mouseY)//[-1, 2]
+      {
+        y = y + (int)(Math.random()*4) - 1;
+      }
+      else if (y > mouseY)//[-2, 1]
+      {
+        y = y + (int)(Math.random()*4) - 2;
+      }
+      else
+      {
+        y = y + (int)(Math.random()*5) - 2;
+      }
     }
   }
   void reset() //if bacteria touches cursor or wave, reset off the screen
