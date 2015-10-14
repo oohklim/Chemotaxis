@@ -130,7 +130,6 @@ class Bacteria
     ellipse(x, y, d, d);
   }
 }
-
 void mouseClicked()
 {
   if(a == 150)
